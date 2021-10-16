@@ -35,3 +35,7 @@ content = response.read().decode('utf-8')
 
 # 打印內容 content
 print(content)
+
+# 以上即為 get 請求的 quote 方法
+# 在網頁網頁點擊右鍵選檢查後，選 Network 選 Headers 可看到一個選項顯示：
+# Request Method: GET
