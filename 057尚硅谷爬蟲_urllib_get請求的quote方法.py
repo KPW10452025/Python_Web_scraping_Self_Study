@@ -21,12 +21,10 @@ headers = {
     'user-agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
 }
 
-# 將 [網頁爬蟲] 變成 Unicode 的格式
-# 測試 urllib.parse 的功能
 name = urllib.parse.quote('網頁爬蟲')
-print(name)
-# %E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2
-# 將出現的結果對照，方才的網址得知：urllib.parse.quote() 可以獲得相對應的 Unicode 編碼。
+url = url + name
+print(url)
+# https://www.google.com/search?q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2
 
 # request = urllib.request.Request(url = url, headers = headers)
 
