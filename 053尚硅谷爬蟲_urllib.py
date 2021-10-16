@@ -28,3 +28,5 @@ content = response.read().decode('utf-8')
 
 # 把內容 content 打印出來
 print(content)
+
+# 這次收到的原始碼因為有經過解碼 decode，所以最前頭既沒有 b'，也能看到源碼中出現中文。
