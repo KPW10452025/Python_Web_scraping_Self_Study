@@ -32,5 +32,13 @@ print(type(response))
 # 運用 readline() 可以讀取一行，但速度比單純 read() 快很多。
 
 # 第三個方法：readlines()
-content = response.readlines()
-print(content)
+# content = response.readlines()
+# print(content)
+# 比起 readline() 只能讀取一行代碼，readlines() 能讀取所有代碼。
+# 讀取速度也比 read() 快許多。
+
+# 第四個方法：getcode()
+# 返回「狀態碼」。
+print(response.getcode())
+# 200
+# 返回 200 只的是網路順暢無錯誤。
