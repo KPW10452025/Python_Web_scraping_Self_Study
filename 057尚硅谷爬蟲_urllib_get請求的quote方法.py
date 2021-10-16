@@ -13,7 +13,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 # 需求：獲得【 https://www.google.com/search?q=網頁爬蟲 】的網頁源碼
 
-url = 'https://www.google.com/search?q=網頁爬蟲'
+url = 'https://www.google.com/search?q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2'
 
 # 請求對象訂製
 headers = {
@@ -33,3 +33,9 @@ print(content)
 
 # 出現錯誤
 # UnicodeEncodeError: 'ascii' codec can't encode characters in position 14-17: ordinal not in range(128)
+# 出錯原因在於 [https://www.google.com/search?q=網頁爬蟲] 裡面的 [網頁爬蟲] 這幾個字無法用ascii辨識。
+# 除非將 [網頁爬蟲] 轉換成 Unicode [E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2]
+# 將原本 url = 'https://www.google.com/search?q=網頁爬蟲'
+# 更改成 url = 'https://www.google.com/search?q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2'
+# 即可成功獲取【 https://www.google.com/search?q=網頁爬蟲 】的網頁源碼。
+# 在 terminal 中可以搜尋 [網頁爬蟲] 進行測試。
