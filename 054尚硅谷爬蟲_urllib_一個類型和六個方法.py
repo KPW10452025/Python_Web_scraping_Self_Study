@@ -16,7 +16,12 @@ print(type(response))
 # content = response.read()
 # print(content)
 
-content = response.read(5)
-print(content)
+# content = response.read(5)
+# print(content)
 # b'<!DOC'
 # read(5) 裡面的 5 就是指：只讀取五個字節 <!DOC，但此法仍是按照字節返回。
+
+content = response.readline()
+print(content
+# b'<!DOCTYPE html><!--STATUS OK-->\n')
+# 運用 readline() 可以讀取一行，但速度比單純 read() 快很多。
