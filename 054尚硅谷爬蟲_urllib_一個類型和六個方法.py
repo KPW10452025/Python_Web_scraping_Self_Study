@@ -39,6 +39,11 @@ print(type(response))
 
 # 第四個方法：getcode()
 # 返回「狀態碼」。
-print(response.getcode())
+# print(response.getcode())
 # 200
 # 返回 200 只的是網路順暢無錯誤。
+
+# 第五個方法：geturl()
+print(response.geturl())
+# https://www.baidu.com/
+# 返回「網址」
