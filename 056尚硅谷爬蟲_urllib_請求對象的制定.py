@@ -11,18 +11,20 @@ headers = {
     'user-agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36'
 }
 
-# 藉由 command + 點擊 urlopen 看其定義。
-# Open the URL url, which can be either a string or a Request object.
-# 因為 urlopen 方法中不能存儲字典，所以 headers 不能傳遞進去。
-# 但是 urlopen 方法可以存處 Request
+request = urllib.request.Request(url = url, headers = headers)
+# 藉由 command + 點擊 Request 看其定義。
+# class Request:
+#     def __init__(self, url, data=None, headers={},
+#                  origin_req_host=None, unverifiable=False,
+#                  method=None):
+# 因為參數順序的問題。
+# 不能直接寫 Request(url, headers)
+# 這樣系統會將 headers 視為 data=headers 而報錯。
+# 故需要明確寫出 Request(url = url, headers = headers)
 
-# 故使用「請求對象訂製」：
-request = urllib.request.Request(url, headers)
-
-# response = urllib.request.urlopen(url, headers)
 response = urllib.request.urlopen(request)
-# 把設定好的 request 放入上式，替換掉 url, headers
 
 content = response.read().decode('utf-8')
 
 print(content)
+# 成功讀取數據
