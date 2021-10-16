@@ -1,4 +1,5 @@
 import urllib.request
+import urllib.parse
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -13,3 +14,14 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 為方便說明，故簡化網址為：
 # https://www.google.com/search?q=網頁爬蟲&country=台灣
 # https://www.google.com/search?q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2&country=%E5%8F%B0%E7%81%A3
+
+data = {
+    'q' : '網頁爬蟲', 
+    'country' : '台灣'
+}
+
+# 測試 urllib.parse.urlencode() 效果
+a = urllib.parse.urlencode(data)
+print(a)
+# q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2&country=%E5%8F%B0%E7%81%A3
+# 經測試發現 urlencode 不僅可以將 dics 裡面的中文轉換成 Unicode 還能將英文的逗號 , 轉換成 &、冒號 : 轉換成 = 
