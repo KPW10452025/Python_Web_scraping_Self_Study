@@ -18,15 +18,13 @@ response = urllib.request.urlopen(url)
 # 獲取響應中的頁面源碼。（因為網站響應後會回傳全部的源碼，這些源碼會夾雜許多我們不要的代碼，必須過濾。）
 # 運用 read() 來讀取獲得的響應 response
 # 運用 content 來接收讀取 read() 到的響應 response 的內容。
-content = response.read()
+# read() 的方法，返回的是字節形式的二進位數據，這東西是給電腦看的。
+# 所以，必須要把二進制的源碼，改成我們能讀得懂的字符串。
+# 將二進位轉換成字符串得過程稱作：解碼 decode('編碼的格式')
+# 而網站的編碼格式，可以在瀏覽器中檢視網站原始碼中找到。
+# charset=utf-8
+# charset 字符集，網頁所使用的字符集為 utf-8
+content = response.read().decode('utf-8')
 
 # 把內容 content 打印出來
 print(content)
-
-# b'<!DOCTYPE html><!--STATUS OK-->\n\n\n......
-# 在 terminal 看完內容 content 後，發現全部都是亂碼，無法閱讀。
-# 經過觀察會發現，原始碼最前面有一個 b' 
-# 而在瀏覽器檢視網頁原始碼時，開頭沒有 b' 
-# <!DOCTYPE html><!--STATUS OK-->......
-# read() 的方法，返回的是字節形式的二進位數據，這東西是給電腦看的。
-# 所以，必須要把二進制的源碼，改成我們能讀得懂的字符串。
