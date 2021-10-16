@@ -22,17 +22,16 @@ headers = {
 }
 
 name = urllib.parse.quote('網頁爬蟲')
+
 url = url + name
-print(url)
-# https://www.google.com/search?q=%E7%B6%B2%E9%A0%81%E7%88%AC%E8%9F%B2
 
-# request = urllib.request.Request(url = url, headers = headers)
+request = urllib.request.Request(url = url, headers = headers)
 
-# # 模擬瀏覽器向伺服器發送請求，並獲得響應 response
-# response = urllib.request.urlopen(request)
+# 模擬瀏覽器向伺服器發送請求，並獲得響應 response
+response = urllib.request.urlopen(request)
 
-# # 獲得響應 response 的內容 content
-# content = response.read().decode('utf-8')
+# 獲得響應 response 的內容 content
+content = response.read().decode('utf-8')
 
-# # 打印內容 content
-# print(content)
+# 打印內容 content
+print(content)
