@@ -36,10 +36,10 @@ def create_request():
     }
     data = urllib.parse.urlencode(data)
     url = base_url + data
-    print(url)
     headers ={
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
     }
+    request = urllib.request.Request(url = url, headers = headers)
 
 # 程式的入口
 if __name__ == '__main__':
@@ -47,16 +47,4 @@ if __name__ == '__main__':
     end_page = int(input('請輸入結束的頁碼'))
 
     for page in range(start_page, end_page+1):
-        create_request()
-
-# 運行測試可以得到如下
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=0&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=20&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=40&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=60&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=80&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=100&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=120&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=140&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=160&limit=20
-# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=180&limit=20
+        create_request(page)
