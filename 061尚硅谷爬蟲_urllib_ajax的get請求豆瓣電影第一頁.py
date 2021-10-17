@@ -30,11 +30,15 @@ content = response.read().decode('utf-8')
 # ue,"id":"1303408","types":["喜剧","动作","爱情"],"regions":["美国"],"title":"福尔摩斯二世",... 成功獲取龐大數據
 
 # 下載數據到本地端
-fp = open('douban.json', mode='w', encoding='utf-8')
-fp.write(content)
-fp.close()
+# fp = open('douban.json', mode='w', encoding='utf-8')
+# fp.write(content)
+# fp.close()
 # 成功後會在同資料夾位置，出現一個名為 douban.json 的 json 檔案。
 
 # 小結論
 # open 方法默認情況下使用的是 gbk 的編碼，如果我們想要保存漢字，須在 open 方法中指定編碼格式為 utf-8
 # 也就是加入 encoding='utf-8'
+
+# 最佳實務寫法
+with open('douban.json', mode='w', encoding='utf-8') as fp:
+    fp.write(content)
