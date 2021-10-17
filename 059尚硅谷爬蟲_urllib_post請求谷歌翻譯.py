@@ -41,3 +41,6 @@ print(request)
 
 # 模擬瀏覽器向伺服器發送請求，並獲得響應 response
 response = urllib.request.urlopen(request)
+print(response)
+# TypeError: POST data should be bytes, an iterable of bytes, or a file object. It cannot be of type str.
+
