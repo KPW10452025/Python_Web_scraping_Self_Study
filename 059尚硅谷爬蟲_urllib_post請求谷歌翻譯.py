@@ -44,8 +44,21 @@ response = urllib.request.urlopen(request)
 content = response.read().decode('utf-8')
 
 # 打印內容 content
-print(content)
+# print(content)
 # {"errno":0,"data":[{"k":"playground","v":"n. \u6e38\u4e50\u573a; \u64cd\u573a\uff0c\u5c24\u6307\u63d0\u4f9b\u5982\u79cb\u5343\u7b49\u8bbe\u5907\u7684\u6237\u5916\u573a\u5730; \uff08\u67d0\u4e9b\u96c6\u4f53\u805a\u4f1a\u6e38\u4e50\u7684\uff09\u56ed\u5730"},{"k":"Playground","v":"[\u7535\u5f71]\u7edd\u5bf9\u7684\u4e54\u4e39"},{"k":"playgrounds","v":"n. \u6e38\u4e50\u573a; \u64cd\u573a( playground\u7684\u540d\u8bcd\u590d\u6570 ); \u5a31\u4e50\u573a; \uff08\u67d0\u4e9b\u96c6\u4f53\u805a\u4f1a\u6e38\u4e50\u7684\uff09\u56ed\u5730"}]}
+# 經過安查可以發現上式為一個 json 結構，可以嘗試解碼。
+
+# 查看 content 類型
+# print(type(content))
+# <class 'str'> 字符串 str
+
+# 將字符串 str 轉換成 json
+import json
+
+obj = json.loads(content)
+print(obj)
+# {'errno': 0, 'data': [{'k': 'playground', 'v': 'n. 游乐场; 操场，尤指提供如秋千等设备的户外场地; （某些集体聚会游乐的）园地'}, {'k': 'Playground', 'v': '[电影]绝对的乔丹'}, {'k': 'playgrounds', 'v': 'n. 游乐场; 操场( playground的名词复数 ); 娱乐场; （某些集体聚会游乐的）园地'}]}
+# 破譯成功
 
 # 小結論
 # post 請求參數的方式，必須編碼：data = urllib.parse.urlencode(data)
