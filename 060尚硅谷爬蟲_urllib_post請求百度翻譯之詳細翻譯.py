@@ -35,3 +35,12 @@ content = response.read().decode('utf-8')
 # 打印內容 content
 print(content)
 # {"errno":997,"errmsg":"\u672a\u77e5\u9519\u8bef","query":"love","from":"en","to":"zh","error":997}
+
+import json
+
+obj = json.loads(content)
+print(obj)
+# {'errno': 997, 'errmsg': '未知错误', 'query': 'love', 'from': 'en', 'to': 'zh', 'error': 997}
+
+# 小結論：雖然有得到響應，但並非想要的結果。
+# 
