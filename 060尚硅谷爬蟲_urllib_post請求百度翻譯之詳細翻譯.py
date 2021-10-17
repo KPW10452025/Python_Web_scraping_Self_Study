@@ -30,8 +30,8 @@ request = urllib.request.Request(url=url, data=data, headers=headers)
 response = urllib.request.urlopen(request)
 
 # 獲得響應 response 的內容 content
-content = response.read().encode('utf-8')
+content = response.read().decode('utf-8')
 
 # 打印內容 content
 print(content)
-# AttributeError: 'bytes' object has no attribute 'encode'
+# {"errno":997,"errmsg":"\u672a\u77e5\u9519\u8bef","query":"love","from":"en","to":"zh","error":997}
