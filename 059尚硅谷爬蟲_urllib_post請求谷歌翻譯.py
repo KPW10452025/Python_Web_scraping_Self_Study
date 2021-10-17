@@ -18,3 +18,23 @@ headers = {
 data = {
     'kw' : 'playground'
 }
+
+# post 請求的參數，必須要進行編碼
+data = urllib.parse.urlencode(data)
+# print(data)
+# kw=playground 無報錯
+
+# 如何將 Data 放入 request 中？
+# 經過觀察 Request() 可以發現：
+
+# class Request:
+#     def __init__(self, url, data=None, headers={},
+#                  origin_req_host=None, unverifiable=False,
+#                  method=None):
+
+# Request 中有 data=None，故可以將 data 放入其中做測試。
+request = urllib.request.Request(url = url, data = data, headers = headers)
+print(request)
+# <urllib.request.Request object at 0x7fca602fbfd0> 無報錯
+
+# 小結論：post 的請求參數不會拼接在 url 後面，而是需要放在請求對象訂製的參數中。
