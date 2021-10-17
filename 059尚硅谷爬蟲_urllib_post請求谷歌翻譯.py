@@ -20,9 +20,13 @@ data = {
 }
 
 # post 請求的參數，必須要進行編碼
-data = urllib.parse.urlencode(data)
+# data = urllib.parse.urlencode(data)
 # print(data)
 # kw=playground 無報錯
+data = urllib.parse.urlencode(data).encode('utf-8')
+# print(data)
+# b'kw=playground'
+
 
 # 如何將 Data 放入 request 中？
 # 經過觀察 Request() 可以發現：
@@ -34,13 +38,11 @@ data = urllib.parse.urlencode(data)
 
 # Request 中有 data=None，故可以將 data 放入其中做測試。
 request = urllib.request.Request(url = url, data = data, headers = headers)
-print(request)
-# <urllib.request.Request object at 0x7fca602fbfd0> 無報錯
 
 # 小結論：post 的請求參數不會拼接在 url 後面，而是需要放在請求對象訂製的參數中。
 
 # 模擬瀏覽器向伺服器發送請求，並獲得響應 response
 response = urllib.request.urlopen(request)
-print(response)
-# TypeError: POST data should be bytes, an iterable of bytes, or a file object. It cannot be of type str.
+# print(response)
+# <http.client.HTTPResponse object at 0x7fe72025eca0>
 
