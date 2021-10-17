@@ -28,7 +28,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 設計一個 func 能為每一頁都有自己的請求物件訂製。
 # headers 都一樣，所以難點在於 url 的設計。
 # 經過上面的觀察發現，url 的差異只有 start 不同。
-def create_request():
+def create_request(page):
     base_url = 'https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&'
     data = {
         'start': (page - 1) * 20,
@@ -45,6 +45,11 @@ def create_request():
 def get_content(request):
     response = urllib.request.urlopen(request)
     content = response.read().decode('utf-8')
+    return content
+
+def down_load(page, content):
+    with open('douban' + str(page) + '.json', mode='w', encoding='utf-8') as fp:
+        fp.write(content)
 
 
 # 程式的入口
@@ -56,4 +61,8 @@ if __name__ == '__main__':
         # 請求物件訂製
         request = create_request(page)
         # 獲取響應數據
-        get_content(request)
+        content = get_content(request)
+        # 數據下載到本地
+        down_load(page, content)
+
+# 小技巧：在 mac 系統使用 vscode 需要整理 json 檔案時，快捷鍵為 shift + option + F
