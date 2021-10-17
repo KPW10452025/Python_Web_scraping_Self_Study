@@ -25,10 +25,38 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 因為每一頁的 url 都不一樣，所以步驟一要做些改變
 # 而每一頁都要經歷步驟二和步驟三
 
+# 設計一個 func 能為每一頁都有自己的請求物件訂製。
+# headers 都一樣，所以難點在於 url 的設計。
+# 經過上面的觀察發現，url 的差異只有 start 不同。
+def create_request():
+    base_url = 'https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&'
+    data = {
+        'start': (page - 1) * 20,
+        'limit': '20',
+    }
+    data = urllib.parse.urlencode(data)
+    url = base_url + data
+    print(url)
+    headers ={
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
+    }
+
 # 程式的入口
 if __name__ == '__main__':
     start_page = int(input('請輸入起始的頁碼'))
     end_page = int(input('請輸入結束的頁碼'))
 
     for page in range(start_page, end_page+1):
-        # 每一頁都有自己的請求物件訂製。
+        create_request()
+
+# 運行測試可以得到如下
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=0&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=20&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=40&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=60&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=80&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=100&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=120&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=140&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=160&limit=20
+# https://movie.douban.com/j/chart/top_list?type=5&interval_id=100%3A90&action=&start=180&limit=20
