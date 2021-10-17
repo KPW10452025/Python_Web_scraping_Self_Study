@@ -7,7 +7,7 @@ url = 'https://fanyi.baidu.com/v2transapi?from=en&to=zh'
 
 headers = {
     'Accept': '*/*',
-    'Accept-Encoding': 'gzip, deflate, br',
+    # 'Accept-Encoding': 'gzip, deflate, br',
     'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
     'Connection': 'keep-alive',
     'Content-Length': '135',
@@ -49,11 +49,9 @@ response = urllib.request.urlopen(request)
 # 獲得響應 response 的內容 content
 content = response.read().decode('utf-8')
 
-# 打印內容 content
-print(content)
-
 import json
 
 obj = json.loads(content)
 print(obj)
-# UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+# {'trans_result': {'data': [{'dst': '爱',......
+# 成功破譯出非常多數據。
