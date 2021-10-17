@@ -40,6 +40,12 @@ def create_request():
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
     }
     request = urllib.request.Request(url = url, headers = headers)
+    return request
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode('utf-8')
+
 
 # 程式的入口
 if __name__ == '__main__':
@@ -47,4 +53,7 @@ if __name__ == '__main__':
     end_page = int(input('請輸入結束的頁碼'))
 
     for page in range(start_page, end_page+1):
-        create_request(page)
+        # 請求物件訂製
+        request = create_request(page)
+        # 獲取響應數據
+        get_content(request)
