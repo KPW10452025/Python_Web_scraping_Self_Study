@@ -51,6 +51,8 @@ def create_request(page):
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
     }
 
+    request = urllib.request.Request(url = base_url, data = data, headers = headers)
+
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
     end_page = int(input("請輸入結束頁碼："))
