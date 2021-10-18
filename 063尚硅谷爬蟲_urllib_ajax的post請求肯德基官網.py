@@ -40,7 +40,7 @@ def create_request(page):
         'cname': '北京',
         'pid': '',
         'pageIndex': page,
-        'pageSize': 10,
+        'pageSize': '10',
     }
     # 和 GET 不一樣的是，POST 的 urllib.parse.urlencode(data) 後面要加個 encode("utf-8")
     data = urllib.parse.urlencode(data).encode("utf-8")
@@ -53,14 +53,15 @@ def create_request(page):
 def get_content(request):
     response = urllib.request.urlopen(request)
     content = response.read().decode("utf-8")
+    return content
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
     end_page = int(input("請輸入結束頁碼："))
 
     for page in range(start_page, end_page + 1):
-        print(page)
         # 請求物件訂製
-        create_request(page)
+        request = create_request(page)
         # 獲取響應數據
         content = get_content(request)
+        print(content)
