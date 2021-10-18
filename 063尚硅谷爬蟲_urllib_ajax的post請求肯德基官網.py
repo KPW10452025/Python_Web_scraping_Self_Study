@@ -55,6 +55,10 @@ def get_content(request):
     content = response.read().decode("utf-8")
     return content
 
+def down_load(page, content):
+    with open('肯德基北京店鋪分佈資料原始碼' + str(page) + '.json', mode = 'w', encoding = 'utf-8') as fp:
+        fp.write(content)
+
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
     end_page = int(input("請輸入結束頁碼："))
@@ -64,4 +68,5 @@ if __name__ == "__main__":
         request = create_request(page)
         # 獲取響應數據
         content = get_content(request)
-        print(content)
+        # 數據下載到本地
+        down_load(page, content)
