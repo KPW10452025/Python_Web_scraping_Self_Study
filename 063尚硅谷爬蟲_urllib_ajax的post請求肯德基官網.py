@@ -36,22 +36,23 @@ ssl._create_default_https_context = ssl._create_unverified_context
 def create_request(page):
     # create_request() 的基本三要素：url, data, headers
     base_url = 'http://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=cname'
-
     data = {
         'cname': '北京',
         'pid': '',
         'pageIndex': page,
         'pageSize': 10,
     }
-
     # 和 GET 不一樣的是，POST 的 urllib.parse.urlencode(data) 後面要加個 encode("utf-8")
     data = urllib.parse.urlencode(data).encode("utf-8")
-
     headers = {
         'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
     }
-
     request = urllib.request.Request(url = base_url, data = data, headers = headers)
+    return request
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode("utf-8")
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
@@ -61,3 +62,5 @@ if __name__ == "__main__":
         print(page)
         # 請求物件訂製
         create_request(page)
+        # 獲取響應數據
+        content = get_content(request)
