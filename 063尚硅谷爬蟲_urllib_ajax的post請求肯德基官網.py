@@ -37,4 +37,8 @@ base_url = 'http://www.kfc.com.cn/kfccda/ashx/GetStoreList.ashx?op=cname'
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
-    end_page = int(input("請輸入結束頁碼"))
+    end_page = int(input("請輸入結束頁碼："))
+
+    for page in range(start_page, end_page + 1):
+        print(page)
+        
