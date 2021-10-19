@@ -32,5 +32,5 @@ try:
 except urllib.error.HTTPError:
     print("系統施工升級中......")
 
-# 因為已經知道出現的錯誤是 urllib.error.HTTPError
-# 故 import urllib.error 後，運用 try 和 except 進行暫時錯誤排除
+except urllib.error.URLError:
+    print("系統維護升級中......")
