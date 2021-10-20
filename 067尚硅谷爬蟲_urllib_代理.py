@@ -10,7 +10,12 @@ headers = {
 
 request = urllib.request.Request(url=url, headers=headers)
 
-handler = urllib.request.ProxyHandler()
+proxies = {
+    # 寫法 "http" : "IP位置:port碼"
+    # "http" : "115.29.170.58:8118"
+}
+
+handler = urllib.request.ProxyHandler(proxies = proxies)
 
 # 觀察一下 ProxyHandler:
 
@@ -21,11 +26,13 @@ handler = urllib.request.ProxyHandler()
 
 # 裡面有一個 proxies=None
 
-openr = urllib.request.build_opener(handler)
+opener = urllib.request.build_opener(handler)
 
-response = openr.open(request)
+response = opener.open(request)
 
 content = response.read().decode("utf-8")
 
-# with open("IP_Address.html", mode="w", encoding="utf-8") as fp:
-#     fp.write(content)
+# print(content)
+
+with open("IP_Address.html", mode="w", encoding="utf-8") as fp:
+    fp.write(content)
