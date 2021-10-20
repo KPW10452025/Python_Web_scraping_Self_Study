@@ -10,9 +10,22 @@ headers = {
 
 request = urllib.request.Request(url=url, headers=headers)
 
-response = urllib.request.urlopen(request)
+handler = urllib.request.ProxyHandler()
+
+# 觀察一下 ProxyHandler:
+
+# class ProxyHandler(BaseHandler):
+#     # Proxies must be in front
+#     handler_order = 100
+#     def __init__(self, proxies=None):
+
+# 裡面有一個 proxies=None
+
+openr = urllib.request.build_opener(handler)
+
+response = openr.open(request)
 
 content = response.read().decode("utf-8")
 
-with open("IP_Address.html", mode="w", encoding="utf-8") as fp:
-    fp.write(content)
+# with open("IP_Address.html", mode="w", encoding="utf-8") as fp:
+#     fp.write(content)
