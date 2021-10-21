@@ -1,4 +1,5 @@
 import urllib.request
+import random
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
 
@@ -10,9 +11,15 @@ headers = {
 
 request = urllib.request.Request(url=url, headers=headers)
 
-proxies = {
-    "http" : "181.52.85.249:36107"
-}
+proxies_pool = [
+    {"http" : "88.151.251.195:6969"},
+    {"http" : "23.251.138.105:8080"},
+    {"http" : "18.139.163.152:443"},
+    {"http" : "77.40.252.172:8080"}
+]
+
+# 用 random 產生隨機抽選效果
+proxies = random.choice(proxies_pool)
 
 handler = urllib.request.ProxyHandler(proxies = proxies)
 
