@@ -40,7 +40,9 @@ def down_load(content):
         src = src_list[i]
         url = 'https:' + src
         # print(name, url)
-        urllib.request.urlretrieve(url=url, filename=name + '.jpg')
+        # 指定下載地址：同一資料夾下，創新一個名為 072Img 資料夾，並指定其為下載地址
+        # 祝種寫法要事先把指定位置的資料夾創好，不然會報錯地址不存在
+        urllib.request.urlretrieve(url=url, filename='./072Img/' + name + '.jpg')
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
