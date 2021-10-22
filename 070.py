@@ -54,8 +54,12 @@ print("The length of li_list =", len(li_list))
 print(li_list)
 # ['台北', '台南', '美國', '彰化']
 
-li_list = tree.xpath('//li[@id=13]/text()')
+li_list = tree.xpath('//li[@id="13"]/text()')
 print("The length of li_list =", len(li_list))
 # The length of li_list = 1
 print(li_list)
 # ['美國']
+
+li_list = tree.xpath('//li[@id="88"]/@class')
+print(li_list)
+# ['t2']
