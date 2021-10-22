@@ -34,9 +34,9 @@ def down_load(content):
     # 由於需要地址和名稱，故需要 content 內容
     tree = etree.HTML(content)
     name_list = tree.xpath('//div[@id="container"]//a//img/@alt')
-    print(len(name_list))
-    for name in name_list:
-        print(name)
+    src_list = tree.xpath('//div[@id="container"]//a//img/@src2')
+    print(len(name_list), len(src_list))
+    # 40 40
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
