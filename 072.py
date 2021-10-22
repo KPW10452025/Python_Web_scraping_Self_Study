@@ -33,8 +33,10 @@ def down_load(content):
     # urllib.request.urlretrieve('地址', '名稱')
     # 由於需要地址和名稱，故需要 content 內容
     tree = etree.HTML(content)
-    tree.xpath()
-
+    name_list = tree.xpath('//div[@id="container"]//a//img/@alt')
+    print(len(name_list))
+    for name in name_list:
+        print(name)
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
