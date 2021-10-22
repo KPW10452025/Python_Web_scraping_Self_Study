@@ -38,7 +38,9 @@ def down_load(content):
     for i in range(len(name_list)):
         name = name_list[i]
         src = src_list[i]
-        print(name, src)
+        url = 'https:' + src
+        # print(name, url)
+        urllib.request.urlretrieve(url=url, filename=name + '.jpg')
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
