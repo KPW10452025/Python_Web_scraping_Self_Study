@@ -1,4 +1,3 @@
-from os import stat_result
 import urllib.request
 from lxml import etree
 import ssl
@@ -27,12 +26,24 @@ def create_request(page):
 def get_content(request):
     response = urllib.request.urlopen(request)
     content = response.read().decode("utf-8")
-    print(content)
+    return content
+
+def down_load(content):
+    # 目標：下載「圖片」，圖片是一個地址。
+    # urllib.request.urlretrieve('地址', '名稱')
+    # 由於需要地址和名稱，故需要 content 內容
+    tree = etree.HTML(content)
+    tree.xpath()
+
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
     end_page = int(input("請輸入結束頁碼："))
 
     for page in range(start_page, end_page + 1):
+        # 請求物件訂製
         request = create_request(page)
-        get_content(request)
+        # 獲取網頁源碼
+        content = get_content(request)
+        # 下載
+        down_load(content)
