@@ -64,6 +64,10 @@ li_list = tree.xpath('//li[@id="88"]/@class')
 print(li_list)
 # ['t2']
 
-li_list = tree.xpath('//li[contains(@id, "a")]/text()')
+li_list = tree.xpath('//li[contains(@id, "3")]/text()')
+print(li_list)
+# ['美國', '新竹']
+
+li_list = tree.xpath('//li[starts-with(@id, "a")]/text()')
 print(li_list)
 # ['嘉義', '新竹']
