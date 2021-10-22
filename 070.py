@@ -71,3 +71,7 @@ print(li_list)
 li_list = tree.xpath('//li[starts-with(@id, "a")]/text()')
 print(li_list)
 # ['嘉義', '新竹']
+
+li_list = tree.xpath('//li[@id="88" and @class="t2"]/text()')
+print(li_list)
+# ['台南']
