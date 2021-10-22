@@ -40,3 +40,8 @@ print("The length of li_list =", len(li_list))
 li_list = tree.xpath('//ul/ul/li')
 print("The length of li_list =", len(li_list))
 # The length of li_list = 2
+
+# 尋找所有 li 帶有 id 
+li_list = tree.xpath('//li[@id]')
+print("The length of li_list =", len(li_list))
+# The length of li_list = 4
