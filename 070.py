@@ -21,9 +21,11 @@ tree = etree.parse('070_urllib_xpath.html')
 # '//地址三//地址四'
 # 地址三和地址四是，爺類和孫類關係
 
-li_list = tree.xpath('//li')
+li_list = tree.xpath('//li/text()')
 print("The length of li_list =", len(li_list))
 # The length of li_list = 11
+print(li_list)
+# ['台北', '台中', '台南', '台東', '台灣', '美國', '嘉義', '花蓮', '新竹', '桃園', '彰化']
 
 li_list = tree.xpath('//ul')
 print("The length of li_list =", len(li_list))
@@ -45,3 +47,9 @@ print("The length of li_list =", len(li_list))
 li_list = tree.xpath('//li[@id]')
 print("The length of li_list =", len(li_list))
 # The length of li_list = 4
+ 
+li_list = tree.xpath('//li[@id]/text()')
+print("The length of li_list =", len(li_list))
+# The length of li_list = 4
+print(li_list)
+# ['台北', '台南', '美國', '彰化']
