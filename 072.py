@@ -18,11 +18,21 @@ def create_request(page):
         url = 'https://sc.chinaz.com/tupian/qinglvtupian.html'
     else:
         url = 'https://sc.chinaz.com/tupian/qinglvtupian_' + str(page) + '.html'
-    print(url)
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
+    }
+    request = urllib.request.Request(url=url, headers= headers)
+    return request
+
+def get_content(request):
+    response = urllib.request.urlopen(request)
+    content = response.read().decode("utf-8")
+    print(content)
 
 if __name__ == "__main__":
     start_page = int(input("請輸入起始頁碼："))
     end_page = int(input("請輸入結束頁碼："))
 
     for page in range(start_page, end_page + 1):
-        create_request(page)
+        request = create_request(page)
+        get_content(request)
