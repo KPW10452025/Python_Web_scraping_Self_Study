@@ -15,12 +15,28 @@ tree = etree.parse('070_urllib_xpath.html')
 # tree01.xpath('//地址')
 # 地址開頭一定要加上 //
 
-# 尋找有幾個 li
+# '//地址一/地址二‘
+# 地址一和地址二是，父類和子類關係
+
+# '//地址三//地址四'
+# 地址三和地址四是，爺類和孫類關係
+
 li_list = tree.xpath('//li')
 print("The length of li_list =", len(li_list))
-# The length of li_list = 7
+# The length of li_list = 11
 
-# 尋找有幾個 ul
 li_list = tree.xpath('//ul')
+print("The length of li_list =", len(li_list))
+# The length of li_list = 4
+
+li_list = tree.xpath('//ul/ul')
+print("The length of li_list =", len(li_list))
+# The length of li_list = 1
+
+li_list = tree.xpath('//ul/li')
+print("The length of li_list =", len(li_list))
+# The length of li_list = 9
+
+li_list = tree.xpath('//ul/ul/li')
 print("The length of li_list =", len(li_list))
 # The length of li_list = 2
