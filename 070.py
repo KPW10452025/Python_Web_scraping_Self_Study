@@ -46,13 +46,13 @@ print("The length of li_list =", len(li_list))
 # 尋找所有 li 帶有 id 
 li_list = tree.xpath('//li[@id]')
 print("The length of li_list =", len(li_list))
-# The length of li_list = 4
+# The length of li_list = 6
 
 li_list = tree.xpath('//li[@id]/text()')
 print("The length of li_list =", len(li_list))
-# The length of li_list = 4
+# The length of li_list = 6
 print(li_list)
-# ['台北', '台南', '美國', '彰化']
+# ['台北', '台南', '美國', '嘉義', '新竹', '彰化']
 
 li_list = tree.xpath('//li[@id="13"]/text()')
 print("The length of li_list =", len(li_list))
@@ -63,3 +63,7 @@ print(li_list)
 li_list = tree.xpath('//li[@id="88"]/@class')
 print(li_list)
 # ['t2']
+
+li_list = tree.xpath('//li[contains(@id, "a")]/text()')
+print(li_list)
+# ['嘉義', '新竹']
