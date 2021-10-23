@@ -40,3 +40,11 @@ with open('074_Jsonpath.json', mode='w', encoding='utf-8')as fp:
 # jsonp 簡介 https://zh.wikipedia.org/wiki/JSONP
 # 簡單來說，原因是這段代碼被 jsonp153(); 包圍起來
 # 將 jsonp153(); 刪除後即可正常讀取 json 檔案內容
+
+import json
+import jsonpath
+
+obj = json.load('074_Jsonpath.json')
+
+city_list = jsonpath.jsonpath(obj, '$..regionName')
+# AttributeError: 'str' object has no attribute 'read'
