@@ -1,3 +1,4 @@
+from json import encoder
 import urllib.request
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
@@ -44,7 +45,8 @@ with open('074_Jsonpath.json', mode='w', encoding='utf-8')as fp:
 import json
 import jsonpath
 
-obj = json.load('074_Jsonpath.json')
+obj = json.load(open('074_Jsonpath.json', mode='r', encoding='utf-8'))
 
 city_list = jsonpath.jsonpath(obj, '$..regionName')
-# AttributeError: 'str' object has no attribute 'read'
+
+print(city_list)
