@@ -30,4 +30,14 @@ response = urllib.request.urlopen(request)
 
 content = response.read().decode('utf-8')
 
+content = content.split('(')[1]
+
+content = content.split(')')[0]
+
 print(content)
+
+# 將結果複製後，貼到 https://www.json.cn/ 發現會報錯 RangeError: Invalid array length
+# 這是一個反爬蟲手段 jsonp
+# jsonp 簡介 https://zh.wikipedia.org/wiki/JSONP
+# 簡單來說，原因是這段代碼被 jsonp153(); 包圍起來
+# 將 jsonp153(); 刪除後即可正常讀取 json 檔案內容
