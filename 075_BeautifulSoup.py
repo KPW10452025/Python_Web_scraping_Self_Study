@@ -33,3 +33,21 @@ print(soup.find('a',class_='a1'))
 # <a class="a1" href="" id="">尚硅谷</a>
 # 根據 class 的值找到對應的標籤對象
 # 注意：查找 html 的 class 值時，必須寫 class_ 因為 python 本身 class 就有定義
+
+# find_all
+print(soup.find_all('a'))
+# [<a class="a1" href="" id="">尚硅谷</a>, <a href="" title="a2">百度</a>]
+# 返回的是：一個列表，內容是所有的 a 標籤
+
+print(soup.find_all('a','span'))
+# []
+print(soup.find_all(['a','span']))
+# [<a class="a1" href="" id="">尚硅谷</a>, <span>嘿嘿嘿</span>, <a href="" title="a2">百度</a>]
+# 如果想取得多個標籤的數據，那麼在 find_all 的多個參數中添加的是列表的數據
+
+print(soup.find_all('li'))
+# [<li>張三</li>, <li>李四</li>, <li>王五</li>]
+
+print(soup.find_all('li',limit=2))
+# [<li>張三</li>, <li>李四</li>]
+# limit 查找前幾個數據
