@@ -30,11 +30,10 @@ response = urllib.request.urlopen(request)
 
 content = response.read().decode('utf-8')
 
-content = content.split('(')[1]
+content = content.split('(')[1].split(')')[0]
 
-content = content.split(')')[0]
-
-print(content)
+with open('074_Jsonpath.json', mode='w', encoding='utf-8')as fp:
+    fp.write(content)
 
 # 將結果複製後，貼到 https://www.json.cn/ 發現會報錯 RangeError: Invalid array length
 # 這是一個反爬蟲手段 jsonp
