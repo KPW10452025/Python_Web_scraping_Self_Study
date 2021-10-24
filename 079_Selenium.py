@@ -32,11 +32,21 @@ button2 = browser.find_element_by_name('wd')
 
 # 檢查瀏覽器原始碼，找到「百度一下」
 # 經觀察，標籤為 input 屬性 id="su"
+# 根據 xpath 語句獲取對象
+# element 與 elements 使用條件稍有差異
 button3_test1 = browser.find_element_by_xpath('//input[@id="su"]')
 # print(button3_test1)
 # <selenium.webdriver.remote.webelement.WebElement (session="da9a964f8c3263e40a97fc20e1c9e982", element="297bab08-924c-4542-9dbc-088f07dcb48b")>
 button3_test2 = browser.find_elements_by_xpath('//input[@id="su"]')
-print(button3_test2)
+# print(button3_test2)
 # [<selenium.webdriver.remote.webelement.WebElement (session="da9a964f8c3263e40a97fc20e1c9e982", element="297bab08-924c-4542-9dbc-088f07dcb48b")>]
+
+# 根據標籤的名字獲取對象
+button4_test1 = browser.find_element_by_tag_name('input')
+# print(button4_test1)
+# 返回第一個
+button4_test2 = browser.find_elements_by_tag_name('input')
+# print(button4_test2)
+# 返回全部
 
 browser.close()
