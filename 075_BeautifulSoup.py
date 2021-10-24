@@ -73,3 +73,9 @@ print(soup.select('div>ul>li')) # [<li id="l1">張三</li>, <li id="l2">李四</
 
 # 找到所有 a 與 li 標籤的
 print(soup.select('a,li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>, <a class="a1" href="" id="">尚硅谷</a>, <a href="" title="a2">百度</a>]
+
+# 節點訊息，獲取節點內容
+obj = soup.select('#d1')[0]
+print(obj.string) # None
+print(obj.get_text()) # 哈哈哈
+# 如果標籤對象中，除了內容還有標籤，那麼 string 獲取不到數據內容，而 get_text() 可以獲取數據內容
