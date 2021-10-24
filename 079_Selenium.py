@@ -30,4 +30,10 @@ button2 = browser.find_element_by_name('wd')
 # <selenium.webdriver.remote.webelement.WebElement (session="59febc09bd0a108575fbe59c6028d59f", element="cd95faaf-1f20-43e5-9d3e-b79fe832933f")>
 # 出現類似此數據代表有找到物件
 
+# 檢查瀏覽器原始碼，找到「百度一下」
+# 經觀察，標籤為 input 屬性 id="su"
+button3_test1 = browser.find_element_by_xpath('//input[@id="su"]')
+print(button3_test1)
+# <selenium.webdriver.remote.webelement.WebElement (session="da9a964f8c3263e40a97fc20e1c9e982", element="297bab08-924c-4542-9dbc-088f07dcb48b")>
+
 browser.close()
