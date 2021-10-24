@@ -94,3 +94,12 @@ print(obj.name) # p
 
 # attrs：將屬性值作為字典返回
 print(obj.attrs) # {'id': 'p1', 'class': ['p1']}
+
+# 獲取節點屬性
+obj = soup.select('#p1')[0]
+# .attrs 返回字典，用 .get 獲取字典的值
+print(obj.attrs.get('class')) # ['p1']
+
+print(obj.get('class')) # ['p1']
+
+print(obj['class']) # ['p1']
