@@ -13,6 +13,19 @@ response = urllib.request.urlopen(url)
 
 content = response.read().decode("utf-8")
 
-print(content)
+# print(content)
 # 能取得數據
 # 此網頁並沒有設置反爬蟲
+
+# 步驟：
+# 一、先觀察網頁源碼，發現爬取目標後分析其 html 標籤
+# 二、運用 chrome 的 Xpath Helper 獲得 xpath 語法
+# 三、再把 xpath 語法轉換為 bs4
+
+# 【 運用 chrome 的 Xpath Helper 獲得 xpath 語法 】
+# //ul[@class="grid padded-3 product"]//strong/text()
+
+# 【 再把 xpath 語法轉換為 bs4 】: //ul[@class="grid padded-3 product"]//strong/text()
+soup = BeautifulSoup(content, 'lxml')
+name_list = soup.select('ul[class="grid padded-3 product"]')
+print(name_list) # 能獲取數值
