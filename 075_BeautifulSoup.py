@@ -34,7 +34,7 @@ print(soup.find_all('a')) # [<a class="a1" href="" id="">尚硅谷</a>, <a href=
 # 返回的是：一個列表，內容是所有的 a 標籤
 
 print(soup.find_all('a','span')) # []
-print(soup.find_all(['a','span'])) # [<a class="a1" href="" id="">尚硅谷</a>, <span>嘿嘿嘿</span>, <a href="" title="a2">百度</a>]
+print(soup.find_all(['a','span'])) # [<a class="a1" href="" id="">尚硅谷</a>, <span>嘿嘿嘿</span>, <a href="" title="a2">百度</a>, <span>哈哈哈</span>]
 # 如果想取得多個標籤的數據，那麼在 find_all 的多個參數中添加的是列表的數據
 
 print(soup.find_all('li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>]
