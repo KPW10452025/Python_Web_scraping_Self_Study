@@ -27,5 +27,9 @@ content = response.read().decode("utf-8")
 
 # 【 再把 xpath 語法轉換為 bs4 】: //ul[@class="grid padded-3 product"]//strong/text()
 soup = BeautifulSoup(content, 'lxml')
-name_list = soup.select('ul[class="grid padded-3 product"]')
-print(name_list) # 能獲取數值
+name_list = soup.select('ul[class="grid padded-3 product"] strong')
+for name in name_list:
+    # print(name.string) 
+    # .string 與 .get_text() 兩個方法都可以
+    print(name.get_text())
+
