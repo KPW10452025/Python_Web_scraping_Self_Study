@@ -76,6 +76,7 @@ print(soup.select('a,li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, 
 
 # 節點訊息，獲取節點內容
 obj = soup.select('#d1')[0]
-print(obj.string) # None
+print(obj.string) # 哈哈哈
 print(obj.get_text()) # 哈哈哈
-# 如果標籤對象中，除了內容還有標籤，那麼 string 獲取不到數據內容，而 get_text() 可以獲取數據內容
+# 如果標籤對象中，只有內容，那麼 string 與 get_text() 都可以獲得數據內容
+# 所以一般情況下推薦使用 get_text()
