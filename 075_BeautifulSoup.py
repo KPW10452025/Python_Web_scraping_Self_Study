@@ -62,3 +62,14 @@ print(soup.select('li[id="l2"]')) # [<li id="l2">李四</li>]
 # 後代選擇器
 # 長地 div 下面的 li
 print(soup.select('div li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>]
+
+# 子代選擇器
+# 某標籤的第一層級子標籤
+print(soup.select('div > li')) # []
+# 因為 div 的第一層子標籤是 ul 所以返回值為空
+print(soup.select('div > ul > li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>]
+print(soup.select('div>ul>li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>]
+# 注意：有些編程語言中，不加空格會報錯，但在 bs4 中不會報錯
+
+# 找到所有 a 與 li 標籤的
+print(soup.select('a,li')) # [<li id="l1">張三</li>, <li id="l2">李四</li>, <li>王五</li>, <a class="a1" href="" id="">尚硅谷</a>, <a href="" title="a2">百度</a>]
