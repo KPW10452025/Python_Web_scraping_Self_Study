@@ -13,7 +13,8 @@ ssl._create_default_https_context = ssl._create_unverified_context
 # 導入 selenium
 from selenium import webdriver
 
-url = 'https://www.google.com'
+# url = 'https://www.google.com'
+url = 'https://www.jd.com/'
 
 # 創建瀏覽器操作物件
 
@@ -25,3 +26,8 @@ browser = webdriver.Chrome(path)
 browser.get(url)
 
 # 運行後，系統會自動執行 chrome 瀏覽器，並且瀏覽器上面會出現這些字：Chrome 目前受到自動測試軟體控制。
+
+# page_source 獲取網頁源碼
+content = browser.page_source
+print(content)
+# 成功在 terminal 搜尋到 京东秒杀
