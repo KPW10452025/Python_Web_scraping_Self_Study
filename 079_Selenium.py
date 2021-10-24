@@ -49,12 +49,23 @@ button4_test2 = browser.find_elements_by_tag_name('input')
 # print(button4_test2)
 # 返回全部
 
+# 根據 bs4 語句獲取對象
 button5_test1 = browser.find_element_by_css_selector('#su')
-print(button5_test1)
+# print(button5_test1)
 # <selenium.webdriver.remote.webelement.WebElement (session="d766f1bf6d10ada5293a6abb52c8e006", element="6cc5d14e-217b-4de7-b68d-1ebaa8580975")>
 button5_test2 = browser.find_elements_by_css_selector('#su')
-print(button5_test2)
+# print(button5_test2)
 # [<selenium.webdriver.remote.webelement.WebElement (session="d766f1bf6d10ada5293a6abb52c8e006", element="6cc5d14e-217b-4de7-b68d-1ebaa8580975")>]
 
+# 能獲取當前頁面中的「鏈接文本」即為 a 標籤的文本(會跳轉頁面的按鈕)
+# 檢查瀏覽器原始碼，找到「直撥」
+button6_test1 = browser.find_element_by_link_text('直播')
+# print(button6_test1)
+# <selenium.webdriver.remote.webelement.WebElement (session="b1f54e4e9943d06dff169e162abef0f8", element="610672b7-5b98-4779-832d-35a3777c7757")>
+button6_test2 = browser.find_elements_by_link_text('直播')
+# print(button6_test2)
+# [<selenium.webdriver.remote.webelement.WebElement (session="b1f54e4e9943d06dff169e162abef0f8", element="610672b7-5b98-4779-832d-35a3777c7757")>]
 
 browser.close()
+
+# 結論：這六個方法中常用的是：id, xpath, css 三種方法
