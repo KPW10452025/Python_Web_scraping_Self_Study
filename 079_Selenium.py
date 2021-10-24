@@ -49,4 +49,12 @@ button4_test2 = browser.find_elements_by_tag_name('input')
 # print(button4_test2)
 # 返回全部
 
+button5_test1 = browser.find_element_by_css_selector('#su')
+print(button5_test1)
+# <selenium.webdriver.remote.webelement.WebElement (session="d766f1bf6d10ada5293a6abb52c8e006", element="6cc5d14e-217b-4de7-b68d-1ebaa8580975")>
+button5_test2 = browser.find_elements_by_css_selector('#su')
+print(button5_test2)
+# [<selenium.webdriver.remote.webelement.WebElement (session="d766f1bf6d10ada5293a6abb52c8e006", element="6cc5d14e-217b-4de7-b68d-1ebaa8580975")>]
+
+
 browser.close()
