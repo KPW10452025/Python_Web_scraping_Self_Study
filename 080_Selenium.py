@@ -24,11 +24,11 @@ print(input.get_attribute('class'))
 print(input.tag_name)
 # input
 
-# 使用 .text 返回標籤內容、元素文本
+# 使用 .text 返回標籤夾帶內容
 print(input.text) 
 # 沒有返回值
 # 因為「百度一下」這四個字並非夾在兩個標籤中
-# 百度一下是屬性 value 的屬性值
+# 「百度一下」是屬性 value 的屬性值
 # <input type="submit" id="su" value="百度一下" class="bg s_btn">
 
 # <a href="http://news.baidu.com" target="_blank" class="mnav c-font-normal c-color-t">新闻</a>
