@@ -18,3 +18,10 @@ input = browser.find_element_by_id('su')
 
 # 使用 .get_attribute('class') 返回查詢 class 的屬性值
 print(input.get_attribute('class'))
+# bg s_btn
+
+# 使用 .tap_name 返回查詢標籤名稱
+print(input.tag_name)
+# input
+
+browser.close()
