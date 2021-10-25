@@ -36,4 +36,24 @@ browser.execute_script(js_bottom)
 
 time.sleep(2)
 
+# 獲取下一頁的按鈕
+next = browser.find_element_by_xpath('//*[@id="page"]/div/a[10]')
+
+# 點擊下一下的按鈕
+next.click()
+
+time.sleep(2)
+
+# 回到上一頁
+browser.back()
+
+time.sleep(2)
+
+# 去下一頁
+browser.forward()
+
+time.sleep(2)
+
+browser.quit()
+
 # browser.close()
