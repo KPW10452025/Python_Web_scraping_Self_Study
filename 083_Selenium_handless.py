@@ -20,10 +20,11 @@ url = 'https://google.com/'
 
 driver.get(url) # 用驅動程式開啟 url
 
-print(driver.title) # 打印頁面 html 的 title
+# 打印頁面 html 的 title
+print(driver.title) 
 # Google
 
+# 頁面截圖 .save_screenshot('圖檔名稱.富檔名稱')
+# driver.save_screenshot('google.png')
+
 driver.quit() # 把瀏覽器關閉
-
-
-
