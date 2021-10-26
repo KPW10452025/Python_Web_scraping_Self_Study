@@ -1,4 +1,3 @@
-from os import path
 from selenium import webdriver
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
