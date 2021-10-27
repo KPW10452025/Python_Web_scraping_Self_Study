@@ -31,3 +31,8 @@ obj = json.loads(content)
 
 print(obj)
 # {'errno': 0, 'data': [{'k': 'eye', 'v': 'n. 眼睛; 视力; 眼状物; 风纪扣扣眼 vt. 定睛地看; 注视; 审视; 细看'}, {'k': 'Eye', 'v': '[人名] 艾; [地名] [英国] 艾伊'}, {'k': 'EYE', 'v': 'abbr. European Year of the Environment 欧洲环境年; Iwas'}, {'k': 'eyed', 'v': 'adj. 有眼的'}, {'k': 'eyer', 'v': 'n. 注视的人'}]}
+
+# 小結論
+# (1)post 請求不需要編解碼
+# (2)post 請求的參數是 data
+# (3)不需要請求物件訂製 
