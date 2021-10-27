@@ -16,7 +16,9 @@
 
 import requests
 
-url = 'https://www.baidu.com/s?'
+url = 'https://www.baidu.com/s'
+# 最後有無 ? 都能用
+# url = 'https://www.baidu.com/s?'
 
 headers = {
     'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36',
@@ -35,6 +37,8 @@ content = response.text
 
 print(content)
 
+# 小結論：
 # 參數使用 params 傳遞
 # 參數無需 urlencode 編碼
 # 不需要請求物件訂製
+# 請求路徑中的 ? 可以加也可以不加
