@@ -51,9 +51,8 @@ viewstate = soup.select('#__VIEWSTATE')[0].attrs.get('value')
 # 獲取 __VIEWSTATEGENERATOR
 viewstategenerator = soup.select('#__VIEWSTATEGENERATOR')[0].attrs.get('value')
 
-# print(viewstate)
-# mls9wpJddWyAfpC7ybkDil0n7he4w8DX/0EOvJ/xtH0IqXsokosm/1DLKv1bbcPvXJ+xZnufFG8VAXNOLnuJGkT1dN1WAlV1GRN4FSzVtjBJ5+Xh3WckqOcokE4=
-# print(viewstategenerator)
-# C93BE1AE
-
+# 獲取驗證碼圖片
+code = soup.select('#imgCode')[0].attrs.get('src')
+print(code)
+# /RandCode.ashx
 
