@@ -58,3 +58,39 @@ code_url = 'https://so.gushiwen.cn' + code
 # https://so.gushiwen.cn/RandCode.ashx
 # 將以上 url 放到瀏覽器中查詢，發現可以得到驗證碼的圖片，並且可以不斷刷新，獲得新的驗證碼圖片
 
+# requests 裡面有一個方法 session()
+# 通過 session() 的返回值，就能使用請求變成一個對象
+
+session = requests.session()
+# 驗證碼 url 的內容
+response_code = session.get(code_url)
+# 注意此時要用二進制數據，因為我們要使用的是圖片的下載
+content_code = response_code.content
+# wb 模式就是將二進制數據寫入到文件
+with open('code.jpg', 'wb')as fp:
+    fp.write(content_code)
+
+# 獲取驗證碼圖片後，下載到本地，然後觀察驗證碼，
+# 在控制台輸入驗證碼，就可將值傳給 code 參數後，做登入動作
+code_name = input('請輸入驗證碼')
+
+# 點擊登入
+url_post = 'https://so.gushiwen.cn/user/login.aspx?from=http%3a%2f%2fso.gushiwen.cn%2fuser%2fcollect.aspx'
+
+data_post = {
+    '__VIEWSTATE': viewstate,
+    '__VIEWSTATEGENERATOR': viewstategenerator,
+    'from': 'http://so.gushiwen.cn/user/collect.aspx',
+    'email': 'kuopowei@gmail.com',
+    'pwd': 'powei4gushiwen',
+    'code': code_name,
+    'denglu': '登录'
+}
+
+response_post = session.post(url=url, headers=headers, data=data_post)
+
+content_post = response_post.text
+
+with open('gushiwen.html', 'w', encoding='utf-8')as fp:
+    fp.write(content_post)
+
