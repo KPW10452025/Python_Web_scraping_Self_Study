@@ -53,6 +53,8 @@ viewstategenerator = soup.select('#__VIEWSTATEGENERATOR')[0].attrs.get('value')
 
 # 獲取驗證碼圖片
 code = soup.select('#imgCode')[0].attrs.get('src')
-print(code)
-# /RandCode.ashx
+code_url = 'https://so.gushiwen.cn' + code
+# print(code_url)
+# https://so.gushiwen.cn/RandCode.ashx
+# 將以上 url 放到瀏覽器中查詢，發現可以得到驗證碼的圖片，並且可以不斷刷新，獲得新的驗證碼圖片
 
