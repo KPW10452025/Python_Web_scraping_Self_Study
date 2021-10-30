@@ -94,3 +94,6 @@ content_post = response_post.text
 with open('gushiwen.html', 'w', encoding='utf-8')as fp:
     fp.write(content_post)
 
+# 難點總結
+# 一、隱藏域問題
+# 二、驗證碼
