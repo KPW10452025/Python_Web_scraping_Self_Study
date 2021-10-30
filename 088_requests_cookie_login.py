@@ -39,3 +39,21 @@ content = response.text
 # print(content)
 # 對 content 做搜尋以確認無反爬
 # 成功搜尋到 __VIEWSTATE 
+
+# 解析頁面源碼，然後獲取 __VIEWSTATE, __VIEWSTATEGENERATOR
+from bs4 import BeautifulSoup
+
+soup = BeautifulSoup(content, 'lxml')
+
+# 獲取 __VIEWSTATE
+viewstate = soup.select('#__VIEWSTATE')[0].attrs.get('value')
+
+# 獲取 __VIEWSTATEGENERATOR
+viewstategenerator = soup.select('#__VIEWSTATEGENERATOR')[0].attrs.get('value')
+
+# print(viewstate)
+# mls9wpJddWyAfpC7ybkDil0n7he4w8DX/0EOvJ/xtH0IqXsokosm/1DLKv1bbcPvXJ+xZnufFG8VAXNOLnuJGkT1dN1WAlV1GRN4FSzVtjBJ5+Xh3WckqOcokE4=
+# print(viewstategenerator)
+# C93BE1AE
+
+
