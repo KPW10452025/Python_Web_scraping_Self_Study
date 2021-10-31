@@ -30,4 +30,8 @@
     
     此時資料夾也會出現 baidu.py 的檔案
 
+3. 運行爬蟲代碼：
+    scrapy crawl 爬蟲的名字
+    ex: scrapy crawl baidu
+
 

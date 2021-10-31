@@ -25,4 +25,6 @@ class BaiduSpider(scrapy.Spider):
     def parse(self, response):
         print('This is for testing.')
 
-
+# 在 terminal 輸入 scrapy crawl baidu 後得到一堆數據
+# 搜尋 This is for testing. 後，無任何結果
+# 得知網站有反爬蟲手段
