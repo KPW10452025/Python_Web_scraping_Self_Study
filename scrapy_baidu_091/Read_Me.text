@@ -1,0 +1,27 @@
+1. 創建爬蟲的項目 scrapy startproject 項目名稱
+    項目名稱木能以數字或是中文開頭
+    scrapy startproject scrapy_baidu_091
+
+    打完後系統回復：
+    You can start your first spider with:
+        cd scrapy_baidu_091
+        scrapy genspider example example.com
+
+    此時會出現一個 scrapy_baidu_091 資料夾
+    
+
+2. 創建爬蟲文件：
+    要在 spiders 文件中創建爬蟲文件
+    cd scrapy_baidu_091\scrapy_baidu_091\spiders
+
+    創建爬蟲文件
+    scrapy genspider 爬蟲文件名稱 要爬取的網頁
+    ex: scrapy genspider baidu http://www.baidu.com
+
+    打完後系統回復：
+    Created spider 'baidu' using template 'basic' in module:
+        scrapy_baidu_091.spiders.baidu
+    
+    此時資料夾也會出現 baidu.py 的檔案
+
+    
