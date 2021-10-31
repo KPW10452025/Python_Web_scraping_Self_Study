@@ -15,8 +15,14 @@ class BaiduSpider(scrapy.Spider):
     # 因為創建爬蟲文件時，輸入了 scrapy genspider baidu http://www.baidu.com
     # 導致雙重 http:// 問題
     # 正確輸入方法為 scrapy genspider baidu www.baidu.com
-    
+
     start_urls = ['http://http://www.baidu.com/']
 
+    # 是執行了 start_urls 之後，執行的方法
+    # 方法中的 response 就是返回的那個對象
+    # 相當於 response = urllib.request.urlopen()
+    # 相當於 response = requests.get()
     def parse(self, response):
-        pass
+        print('This is for testing.')
+
+
