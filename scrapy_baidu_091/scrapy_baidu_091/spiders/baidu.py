@@ -1,6 +1,5 @@
 import scrapy
 
-
 class BaiduSpider(scrapy.Spider):
     # 爬蟲的名稱，用於運行爬蟲的時候，使用的值
     name = 'baidu'
@@ -16,7 +15,7 @@ class BaiduSpider(scrapy.Spider):
     # 導致雙重 http:// 問題
     # 正確輸入方法為 scrapy genspider baidu www.baidu.com
 
-    start_urls = ['http://http://www.baidu.com/']
+    start_urls = ['http://www.baidu.com/']
 
     # 是執行了 start_urls 之後，執行的方法
     # 方法中的 response 就是返回的那個對象
@@ -32,3 +31,8 @@ class BaiduSpider(scrapy.Spider):
 # robots.txt 協議 wiki 解說 https://zh.wikipedia.org/wiki/Robots.txt
 # 在瀏覽器輸入 https://www.baidu.com/robots.txt
 # 可以看到一份反爬蟲協議
+
+# 在 setting.py 裡
+# 將 ROBOTSTXT_OBEY = True 註記後再次執行爬蟲
+# 在數據中能收尋到 This is for testing.
+# 爬蟲成功
