@@ -18,10 +18,16 @@
     scrapy genspider 爬蟲文件名稱 要爬取的網頁
     ex: scrapy genspider baidu http://www.baidu.com
 
+    一般情況下不需要添加 http 協議，也就是說只要 www.baidu.com 就好
+    因為 start_urls 的值是根據 allowed_domains 修改的
+    所以添加了 http:// 的話就會產生 start_urls = ['http://http://www.baidu.com/']
+    http://http:// 出現兩次的錯誤問題
+    這時就需要做手動修改
+
     打完後系統回復：
     Created spider 'baidu' using template 'basic' in module:
         scrapy_baidu_091.spiders.baidu
     
     此時資料夾也會出現 baidu.py 的檔案
 
-    
+
