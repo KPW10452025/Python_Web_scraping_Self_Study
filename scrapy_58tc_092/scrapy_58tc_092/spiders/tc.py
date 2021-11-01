@@ -11,8 +11,10 @@ class TcSpider(scrapy.Spider):
         # content = response.text
         # response.text 獲取的是響應的字符串
         # 觀察一下 body 的功能
-        content = response.body
+        # content = response.body
         # response.body 獲取的是二進制數據
+        span = response.xpath('//div[@id="filter"]/div[@class="tabs"]/a/span')[0]
         print("================Observation================")
-        print(content)
+        # print(span)
+        print(span.extract())
         print("================Observation================")

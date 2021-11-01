@@ -15,3 +15,6 @@
 
     response.text 獲取的是響應的字符串
     response.body 獲取的是二進制數據
+    response.xpath 可以直接使用 xpath 解析 response 內容
+    response.extract() 提取 seletor 對象 data 屬性值
+    response.extract_first() 提取 seletor 列表的第一個數據
