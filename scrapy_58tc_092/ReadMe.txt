@@ -14,3 +14,4 @@
 2. response 的屬性和方法
 
     response.text 獲取的是響應的字符串
+    response.body 獲取的是二進制數據

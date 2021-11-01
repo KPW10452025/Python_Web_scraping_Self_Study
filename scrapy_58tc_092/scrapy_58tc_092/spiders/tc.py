@@ -8,8 +8,11 @@ class TcSpider(scrapy.Spider):
 
     def parse(self, response):
         # 觀察一下 text 的功能
-        content = response.text
+        # content = response.text
+        # response.text 獲取的是響應的字符串
+        # 觀察一下 body 的功能
+        content = response.body
+        # response.body 獲取的是二進制數據
         print("================Observation================")
         print(content)
-        # response.text 獲取的是響應的字符串
         print("================Observation================")
