@@ -11,8 +11,8 @@ from itemadapter import ItemAdapter
 class ScrapyDangdang095Pipeline:
     # item 就是 yield 後面的 book 對象
     def process_item(self, item, spider):
-        
+        # 一、write 發法，寫入值必須是字符串
         with open('book.json', mode='w', encoding='utf-8')as fp:
-            fp.write(item)
+            fp.write(str(item))
 
         return item
