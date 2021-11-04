@@ -32,3 +32,9 @@ class DangSpider(scrapy.Spider):
             # <img data-original="//img3m3.ddimg.cn/97/36/29289643-1_b_6.jpg" src="//img3m3.ddimg.cn/97/36/29289643-1_b_6.jpg"...>
             # 再次觀察又發現，真正的 src 其實就是 data-original
             
+            # 再次觀察回傳數據
+            # 發現一個問題：回傳數據中，第一個 src 是 None
+            # 重新觀察網頁源碼發現，第一個 img 標籤中的第一個屬性是 src，並非 data-original
+            # <img src="//img3m2.ddimg.cn/71/20/28541672-1_b_6.jpg"...>
+            # 而第二個開始的 img 標籤的第一個屬性就是 data-original 並且第二個是 src
+            # 也就是說，第一張圖片的 src 可以使用，其他要使用 data-original
