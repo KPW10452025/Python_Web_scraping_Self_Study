@@ -10,8 +10,8 @@ class DangSpider(scrapy.Spider):
     def parse(self, response):
         # pipeline 下載數據
         # items 定義數據結構的
-        # src = //ul[@id="component_59"]/li/a/img/@src
-        # alt = //ul[@id="component_59"]/li/a/img/@alt
+        # src = //ul[@id="component_59"]/li//img/@src
+        # alt = //ul[@id="component_59"]/li//img/@alt
         # price = //ul[@id="component_59"]/li/p[@class="price"]/span[1]/text()
 
         # 經過觀察發現 src, alt, price 三個目標數據的在 li 下面
@@ -20,4 +20,7 @@ class DangSpider(scrapy.Spider):
         li_list = response.xpath('//ul[@id="component_59"]/li')
         
         for li in li_list:
-            print(li)
+            src = li.xpath('.//img/@src')
+            name = li.xpath('.//img/@alt')
+            price = li.xpath('./p[@class="price"]/span[1]/text()')
+            print(src, name, price)
