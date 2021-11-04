@@ -9,5 +9,10 @@ from itemadapter import ItemAdapter
 
 # 如果想使用 pipline 就必須在 settings 中開啟 pipline
 class ScrapyDangdang095Pipeline:
+    # item 就是 yield 後面的 book 對象
     def process_item(self, item, spider):
+        
+        with open('book.json', mode='w', encoding='utf-8')as fp:
+            fp.write(item)
+
         return item
