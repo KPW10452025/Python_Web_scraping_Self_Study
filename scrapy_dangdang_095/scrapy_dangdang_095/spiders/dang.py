@@ -20,7 +20,7 @@ class DangSpider(scrapy.Spider):
         li_list = response.xpath('//ul[@id="component_59"]/li')
         
         for li in li_list:
-            src = li.xpath('.//img/@src').extract_first()
+            src = li.xpath('.//img/@data-original').extract_first()
             name = li.xpath('.//img/@alt').extract_first()
             price = li.xpath('./p[@class="price"]/span[1]/text()').extract_first()
             print(src, name, price)
