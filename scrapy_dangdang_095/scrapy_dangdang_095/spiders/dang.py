@@ -20,7 +20,15 @@ class DangSpider(scrapy.Spider):
         li_list = response.xpath('//ul[@id="component_59"]/li')
         
         for li in li_list:
-            src = li.xpath('.//img/@src')
-            name = li.xpath('.//img/@alt')
-            price = li.xpath('./p[@class="price"]/span[1]/text()')
+            src = li.xpath('.//img/@src').extract_first()
+            name = li.xpath('.//img/@alt').extract_first()
+            price = li.xpath('./p[@class="price"]/span[1]/text()').extract_first()
             print(src, name, price)
+            # 雖然成功爬取數據
+            # 但是發現圖片都一模一樣，圖片有設置反爬蟲
+            # 經觀察發現這是網頁的圖片懶加載
+            # <img data-original="//img3m3.ddimg.cn/97/36/29289643-1_b_6.jpg" src="images/model/guan/url_none.png"...>
+            # 觀察發現，當使用者頁面滑到該圖片時，圖片的的 src 才會從 none.png 轉變成真實的 .jpg
+            # <img data-original="//img3m3.ddimg.cn/97/36/29289643-1_b_6.jpg" src="//img3m3.ddimg.cn/97/36/29289643-1_b_6.jpg"...>
+            # 再次觀察又發現，真正的 src 其實就是 data-original
+            
