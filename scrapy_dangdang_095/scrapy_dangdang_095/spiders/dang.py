@@ -47,3 +47,5 @@ class DangSpider(scrapy.Spider):
 
             book = ScrapyDangdang095Item(src=src, name=name, price=price)
             
+            # 獲取一個 book 就將之交給 pipline
+            yield book

@@ -7,7 +7,7 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-
+# 如果想使用 pipline 就必須在 settings 中開啟 pipline
 class ScrapyDangdang095Pipeline:
     def process_item(self, item, spider):
         return item
