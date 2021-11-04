@@ -45,4 +45,5 @@ class DangSpider(scrapy.Spider):
             # 而第二個開始的 img 標籤的第一個屬性就是 data-original 並且第二個是 src
             # 也就是說，第一張圖片的 src 可以使用，其他要使用 data-original
 
-            book = ScrapyDangdang095Item()
+            book = ScrapyDangdang095Item(src=src, name=name, price=price)
+            
