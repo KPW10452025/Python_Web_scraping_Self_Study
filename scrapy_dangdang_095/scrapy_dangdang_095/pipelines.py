@@ -28,3 +28,5 @@ class ScrapyDangdang095Pipeline:
     # 在 terminal 運行 scrapy crawl dang 後可以得到檔案 book.json
     # 檢查數據沒問題，爬蟲成功
     # 小結論：這個方法能有效避免文件被多次開啟關閉
+
+# 多條管道同時下載
