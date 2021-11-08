@@ -14,23 +14,17 @@ class ScrapyDangdang095Pipeline:
 
     # open_spider 在爬蟲文件開始之前，執行的一種方法
     def open_spider(self, spider):
-        print("++++++++")
+        self.fp = open('book.json', 'w', encoding='utf-8')
+        # 這裡不使用 a 使用 w 的原因為，因為並非使用 with open 所以文件不會自動關閉
+    
+    def process_item(self, item, spider):
+        self.fp.write(str(item))
+        return item
     
     # close_spider 在爬蟲文件開始之後，執行的一種方法
     def close_spider(self, spider):
-        print("--------")
+        self.fp.close()
     
-    # 在 terminal 運行 scrapy crawl dang 後可以得到一堆數據
-    # 並且得到的數據確實是被 ++++++++ 與 -------- 所包圍
-
-    # item 就是 yield 後面的 book 對象
-    def process_item(self, item, spider):
-        
-        # 企業級開發中不推薦 with open 方法，因為每傳遞過來一條文件，就要開啟一次文件，對文件的開關過於頻繁，容易出問題
-        
-        # 一、write 發法，寫入值必須是字符串
-        # 二、write 模式，每次都會打開文件，覆蓋之前內容，所以下載下來的文件只有最後一本書的資料
-        # with open('book.json', mode='a', encoding='utf-8')as fp:
-        #     fp.write(str(item))
-
-        return item
+    # 在 terminal 運行 scrapy crawl dang 後可以得到檔案 book.json
+    # 檢查數據沒問題，爬蟲成功
+    # 小結論：這個方法能有效避免文件被多次開啟關閉
