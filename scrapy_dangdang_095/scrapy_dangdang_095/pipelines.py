@@ -29,4 +29,10 @@ class ScrapyDangdang095Pipeline:
     # 檢查數據沒問題，爬蟲成功
     # 小結論：這個方法能有效避免文件被多次開啟關閉
 
-# 多條管道同時下載
+# 多條管道同時開啟
+
+# 新增一個名為 DangDangDownload 的 pipline
+class DangDangDownloadPipline:
+    # 以下為默認寫法
+    def process_item(self, item, spider):
+        return item
