@@ -9,6 +9,20 @@ from itemadapter import ItemAdapter
 
 # 如果想使用 pipline 就必須在 settings 中開啟 pipline
 class ScrapyDangdang095Pipeline:
+    # 企業級開發的兩種方法：
+    # 1. open & close spider
+
+    # open_spider 在爬蟲文件開始之前，執行的一種方法
+    def open_spider(self, spider):
+        print("++++++++")
+    
+    # close_spider 在爬蟲文件開始之後，執行的一種方法
+    def close_spider(self, spider):
+        print("--------")
+    
+    # 在 terminal 運行 scrapy crawl dang 後可以得到一堆數據
+    # 並且得到的數據確實是被 ++++++++ 與 -------- 所包圍
+
     # item 就是 yield 後面的 book 對象
     def process_item(self, item, spider):
         
