@@ -40,8 +40,9 @@ import urllib.request
 class DangDangDownloadPipline:
     # 以下為默認寫法
     def process_item(self, item, spider):
-
-        url = item.get('src')
+        
+        # 經觀察 book.json 數據後得知，src 前面並沒有 http:，所以報錯
+        url = 'http:' + item.get('src')
 
         filename = './books' + item.get('name') + '.jpg'
 
