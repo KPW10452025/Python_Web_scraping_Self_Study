@@ -34,6 +34,7 @@ import urllib.request
 # 多條管道同時開啟
 
 # 一、定義管道類
+# 二、在 settings 中開啟管道
 
 # 新增一個名為 DangDangDownload 的 pipline
 class DangDangDownloadPipline:
