@@ -48,3 +48,6 @@ class DangDangDownloadPipline:
         urllib.request.urlretrieve(url=url, filename=filename)
 
         return item
+
+# 在 terminal 運行 scrapy crawl dang 後報錯
+# ValueError: unknown url type
