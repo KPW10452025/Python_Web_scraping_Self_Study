@@ -44,7 +44,7 @@ class DangDangDownloadPipline:
         # 經觀察 book.json 數據後得知，src 前面並沒有 http:，所以報錯
         url = 'http:' + item.get('src')
 
-        filename = './books' + item.get('name') + '.jpg'
+        filename = './books/' + item.get('name') + '.jpg'
 
         urllib.request.urlretrieve(url=url, filename=filename)
 
