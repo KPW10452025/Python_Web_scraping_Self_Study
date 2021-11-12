@@ -8,6 +8,9 @@ class DangSpider(scrapy.Spider):
     allowed_domains = ['http://category.dangdang.com/cp01.01.02.00.00.00.html']
     start_urls = ['http://category.dangdang.com/cp01.01.02.00.00.00.html']
 
+    base_url = 'http://category.dangdang.com/pg'
+    page = 1
+
     def parse(self, response):
         # pipeline 下載數據
         # items 定義數據結構的
@@ -49,3 +52,9 @@ class DangSpider(scrapy.Spider):
             
             # 獲取一個 book 就將之交給 pipline
             yield book
+
+# 每一頁的爬取邏輯多是一樣的，所以只需要將執行的那個頁的請求再次調用 prase 方法即可
+# http://category.dangdang.com/cp01.01.02.00.00.00.html
+# http://category.dangdang.com/pg2-cp01.01.02.00.00.00.html
+# http://category.dangdang.com/pg3-cp01.01.02.00.00.00.html
+# http://category.dangdang.com/pg4-cp01.01.02.00.00.00.html
