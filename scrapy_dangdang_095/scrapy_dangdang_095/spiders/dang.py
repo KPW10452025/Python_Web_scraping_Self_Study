@@ -52,6 +52,15 @@ class DangSpider(scrapy.Spider):
             
             # 獲取一個 book 就將之交給 pipline
             yield book
+        
+        if self.page < 100:
+            self.page = self.page +1
+            url = self.base_url + str(self.page) + '-cp01.01.02.00.00.00.html'
+            # 難點在於怎麼調用 parse 方法
+            # scrapy.Request 就是 scrapy 的 get 請求
+            # url 就是請求地址
+            # callback 就是你要執行的那個函數，注意：不需要加 ()
+            yield scrapy.Request(url=url, callback=self.parse)
 
 # 每一頁的爬取邏輯多是一樣的，所以只需要將執行的那個頁的請求再次調用 prase 方法即可
 # http://category.dangdang.com/cp01.01.02.00.00.00.html
