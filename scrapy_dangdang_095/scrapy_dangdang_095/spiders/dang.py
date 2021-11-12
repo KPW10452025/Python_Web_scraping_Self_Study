@@ -5,7 +5,11 @@ from scrapy_dangdang_095.items import ScrapyDangdang095Item
 
 class DangSpider(scrapy.Spider):
     name = 'dang'
-    allowed_domains = ['http://category.dangdang.com/cp01.01.02.00.00.00.html']
+
+    # 注意：如果是多腋下載的話，那麼需要調整 allowed_domains 的範圍，一般情況下只寫域名
+    # allowed_domains = ['http://category.dangdang.com/cp01.01.02.00.00.00.html']
+    allowed_domains = ['category.dangdang.com']
+    
     start_urls = ['http://category.dangdang.com/cp01.01.02.00.00.00.html']
 
     base_url = 'http://category.dangdang.com/pg'
