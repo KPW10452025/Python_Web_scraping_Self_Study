@@ -7,6 +7,6 @@ class MvSpider(scrapy.Spider):
     start_urls = ['https://www.dydytt.net/html/gndy/dyzz/index.html']
 
     def parse(self, response):
-        print('***********************************')
-        print('***********************************')
-        print('***********************************')
+        # 要第一頁的名字
+        # 要第二頁的圖片
+        pass
