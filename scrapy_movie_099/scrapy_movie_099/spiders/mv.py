@@ -29,7 +29,6 @@ class MvSpider(scrapy.Spider):
             # 自創一個 parse_second 在下方做定義
 
     def parse_second(self, response):
-        print('========123456123456========')
-        # 實行爬蟲後報錯
-        # 因為目前的 allowed_domains = ['https://www.dydytt.net/html/gndy/dyzz/index.html'] 不包含 url = 'https://www.dydytt.net' + href
-        # 所以須將 allowed_domains 做修改，將允許網域改大一點：allowed_domains = ['www.dydytt.net']
+        src = response.xpath('//div[@id="Zoom"]/span/img/@src').extract_first()
+        print(src)
+        # 實施爬蟲後發現回報都是 None
