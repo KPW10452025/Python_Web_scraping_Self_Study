@@ -44,3 +44,5 @@ class MvSpider(scrapy.Spider):
         movie = ScrapyMovie099Item(src=src, name=name)
 
         yield movie
+
+# 小結論：當爬蟲涉及兩個頁面以上的數據時，要使用 meta 做存儲數據的動作
