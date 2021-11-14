@@ -1,5 +1,6 @@
 import scrapy
 
+from scrapy_movie_099.items import ScrapyMovie099Item
 
 class MvSpider(scrapy.Spider):
     name = 'mv'
@@ -39,3 +40,5 @@ class MvSpider(scrapy.Spider):
         
         # 接收到請求的 meta 參數值
         name = response.meta['name']
+        
+        movie = ScrapyMovie099Item(src=src, name=name)
