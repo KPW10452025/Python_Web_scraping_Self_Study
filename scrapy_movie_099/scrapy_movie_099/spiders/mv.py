@@ -25,11 +25,17 @@ class MvSpider(scrapy.Spider):
             # 有第二頁地址就需要做訪問
             # 怎麼訪問？用 yield
 
-            yield scrapy.Request(url=url, callback=self.parse_second)
+            # 現在已成功爬取 name 和 src
+            # 但是 name 在 def parse 裡面，而 src 在 def parse_second 裡面，兩者是分開的
+            # 要怎麼把兩個數據做結合？
+            # 運用新功能 Request 裡面的 meta
+            # meta 能將數據強轉成 dict
+            yield scrapy.Request(url=url, callback=self.parse_second, meta={'name':name})
             # 自創一個 parse_second 在下方做定義
 
     def parse_second(self, response):
         # 注意：如果拿不到數據的情況下，第一個要檢查的就是 xpath 語法是否正確
         src = response.xpath('//div[@id="Zoom"]//img/@src').extract_first()
-        print(src)
-        # 實施爬蟲後發現回報都是 None
+        
+        # 接收到請求的 meta 參數值
+        name = response.meta['name']
