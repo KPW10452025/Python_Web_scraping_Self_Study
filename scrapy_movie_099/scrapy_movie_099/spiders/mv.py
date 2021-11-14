@@ -42,3 +42,5 @@ class MvSpider(scrapy.Spider):
         name = response.meta['name']
         
         movie = ScrapyMovie099Item(src=src, name=name)
+
+        yield movie
