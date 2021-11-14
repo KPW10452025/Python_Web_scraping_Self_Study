@@ -29,6 +29,7 @@ class MvSpider(scrapy.Spider):
             # 自創一個 parse_second 在下方做定義
 
     def parse_second(self, response):
-        src = response.xpath('//div[@id="Zoom"]/span/img/@src').extract_first()
+        # 注意：如果拿不到數據的情況下，第一個要檢查的就是 xpath 語法是否正確
+        src = response.xpath('//div[@id="Zoom"]//img/@src').extract_first()
         print(src)
         # 實施爬蟲後發現回報都是 None
