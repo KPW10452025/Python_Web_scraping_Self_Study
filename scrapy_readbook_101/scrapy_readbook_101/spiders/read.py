@@ -6,10 +6,12 @@ from scrapy.spiders import CrawlSpider, Rule
 class ReadSpider(CrawlSpider):
     name = 'read'
     allowed_domains = ['https://www.dushu.com/book/1188.html']
-    start_urls = ['http://https://www.dushu.com/book/1188.html/']
+    start_urls = ['https://www.dushu.com/book/1188.html']
 
     rules = (
-        Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=r'Items/'), 
+                            callback='parse_item', 
+                            follow=True),
     )
 
     def parse_item(self, response):
