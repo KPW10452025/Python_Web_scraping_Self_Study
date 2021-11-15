@@ -11,11 +11,14 @@ class ReadSpider(CrawlSpider):
     rules = (
         Rule(LinkExtractor(allow=r'/book/1188_\d+\.html'), 
                             callback='parse_item', 
-                            follow=True),
+                            follow=False),
     )
 
     def parse_item(self, response):
         item = {}
+        print('====================')
+        print('********************')
+        print('====================')
         #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
         #item['name'] = response.xpath('//div[@id="name"]').get()
         #item['description'] = response.xpath('//div[@id="description"]').get()
