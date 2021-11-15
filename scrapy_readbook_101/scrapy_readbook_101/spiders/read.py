@@ -9,7 +9,7 @@ class ReadSpider(CrawlSpider):
     start_urls = ['https://www.dushu.com/book/1188.html']
 
     rules = (
-        Rule(LinkExtractor(allow=r'Items/'), 
+        Rule(LinkExtractor(allow=r'/book/1188_\d+\.html'), 
                             callback='parse_item', 
                             follow=True),
     )
