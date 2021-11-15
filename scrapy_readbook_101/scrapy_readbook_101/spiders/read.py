@@ -29,3 +29,7 @@ class ReadSpider(CrawlSpider):
 
             book = ScrapyReadbook101Item(name=name, src=src)
             yield book
+    
+# 執行爬蟲後雖成功獲得數據 json 數據
+# 但觀察 json 數據時發現，數據數量無法對上
+# 故程式碼邏輯上有錯誤
