@@ -15,11 +15,5 @@ class ReadSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
-        item = {}
-        print('====================')
-        print('********************')
-        print('====================')
-        #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
-        #item['name'] = response.xpath('//div[@id="name"]').get()
-        #item['description'] = response.xpath('//div[@id="description"]').get()
+        # 因為可以運用 items.py 進行設定，所以以下皆可以刪除
         return item
