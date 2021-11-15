@@ -1,6 +1,7 @@
 import scrapy
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
+from scrapy_readbook_101.items import ScrapyReadbook101Item
 
 
 class ReadSpider(CrawlSpider):
@@ -15,5 +16,16 @@ class ReadSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
-        # 因為可以運用 items.py 進行設定，所以以下皆可以刪除
-        return item
+        
+        # 藉由網頁 XPath Helper 得到
+        # //div[@class="bookslist"]//img/@alt
+        # //div[@class="bookslist"]//img/@src
+        img_list = response.xpath('//div[@class="bookslist"]//img')
+
+        for img in img_list:
+            # 觀察網頁 html 時，發現有 data-original 懶加載
+            name = img.xpath('./@alt').extract_first()
+            src = img.xpath('./@data-original').extract_first()
+
+            book = ScrapyReadbook101Item(name=name, src=src)
+            yield book
