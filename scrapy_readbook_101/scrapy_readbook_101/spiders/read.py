@@ -5,7 +5,7 @@ from scrapy.spiders import CrawlSpider, Rule
 
 class ReadSpider(CrawlSpider):
     name = 'read'
-    allowed_domains = ['https://www.dushu.com/book/1188.html']
+    allowed_domains = ['www.dushu.com']
     start_urls = ['https://www.dushu.com/book/1188.html']
 
     rules = (
