@@ -7,7 +7,7 @@ from scrapy_readbook_101.items import ScrapyReadbook101Item
 class ReadSpider(CrawlSpider):
     name = 'read'
     allowed_domains = ['www.dushu.com']
-    start_urls = ['https://www.dushu.com/book/1188.html']
+    start_urls = ['https://www.dushu.com/book/1188_1.html']
 
     rules = (
         Rule(LinkExtractor(allow=r'/book/1188_\d+\.html'), 
